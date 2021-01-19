@@ -1,7 +1,7 @@
 {
   "name": "aip-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a basic Node API project that intergrates with Postgres using Knex",
   "main": "index.js",
   "scripts": {
     "test": "mocha --require test/setup.js",
@@ -39,5 +39,16 @@
     "nodemon": "^2.0.6",
     "postgrator-cli": "^3.2.0",
     "supertest": "^6.0.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/johnakhilomen/aipNodeProject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/johnakhilomen/aipNodeProject/issues"
+  },
+  "homepage": "https://github.com/johnakhilomen/aipNodeProject#readme"
 }
