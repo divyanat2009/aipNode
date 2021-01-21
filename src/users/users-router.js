@@ -4,6 +4,11 @@ const path = require('path')
 const UsersService = require('./users-service')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
+const {jwtSecret} = require("../config");
+
+var jwt = require('jsonwebtoken');
+var token = jwt.sign({ foo: 'bar' }, jwtSecret);
+
 
 
 const usersRouter = express.Router()
@@ -122,7 +127,7 @@ usersRouter
         } 
         else
         {
-          res.status(200).json({success: true});
+          res.status(200).json({"token": token});
         }
        
       }); 

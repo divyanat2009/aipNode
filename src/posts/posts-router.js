@@ -5,7 +5,7 @@ const PostsService = require('./posts-service')
 const UsersService = require('../users/users-service')
 const postsRouter = express.Router()
 const jsonParser = express.json()
-
+const verifyJWTToken = require("../auth/auth");
 const serializedPost = post =>({
     id:post.id,
     user_id:post.user_id,
@@ -20,7 +20,7 @@ const serializedPost = post =>({
 
 postsRouter
   .route('/:username')
-  .get((req, res, next)=>{  
+  .get(validateBearerToken, (req, res, next)=>{  
   UsersService.getUserByUsername(
     req.app.get('db'),
     req.params.username
@@ -59,8 +59,7 @@ postsRouter
         req.app.get('db'),
         req.params.username
       )
-      .then(user=>{
-    
+      .then(user=>{    
         if(!user){
            return res.status(404).json({
            error: {message: `User doesn't exist` }
@@ -155,5 +154,19 @@ postsRouter
         })
         .catch(next)
     })
+
+
+  function validateBearerToken(req, res, next) {
+      const authToken = req.get('Authorization')
+      if(!authToken) return res.status(401).json({ error: 'Unauthorized request' });
+      //console.log(authToken.split(' ')[1]);
+      console.log(authToken);
+      if(!verifyJWTToken(authToken) )
+      {
+        return res.status(401).json({ error: 'Unauthorized request' })
+      }
+      // move to the next middleware
+      next()
+  }
 
 module.exports = postsRouter 
