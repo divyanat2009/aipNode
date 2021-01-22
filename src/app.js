@@ -32,6 +32,7 @@ app.use(cors())
 app.use('/api/users',usersRouter)
 app.use('/api/posts',postsRouter)
 
+
 app.get('/',(req,res)=>{
     res.send('Hello, world!')
 })
