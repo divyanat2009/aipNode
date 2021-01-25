@@ -1,0 +1,42 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "title": "AIP",
+    "description": "AIP API"
+    },
+    "schemes": [
+    "http"
+    ],
+    "consumes": [
+    "application/json"
+    ],
+    "produces": [
+    "application/json"
+    ],
+
+    "paths": {
+        "/api/users": {
+            "get": {
+                "x-swagger-router-controller": "users",
+                "operationId": "aipsolution",
+                "tags": ["/api/users"],
+                "description": "Get users",
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/api/posts": {
+            "get": {
+                "x-swagger-router-controller": "users",
+                "operationId": "aipsolution",
+                "tags": ["/api/users"],
+                "description": "Get posts",
+                "parameters": [],
+                "responses": {}
+            }
+        }
+    }
+
+   
+}
+    
