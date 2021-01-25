@@ -1,7 +1,7 @@
 The Autoimmune Protocol
 
 This app can be viewed at:
-https://aip-client.divyanat2009.vercel.app/
+https://aip-react-app.divyanat2009.vercel.app/
 
 Overview — This repo contains the files for an app created to share recipes, books, podcasts, and events with people in the AIP community.
 
@@ -10,6 +10,14 @@ Users will be able to create an account and then post links to recipes; titles a
 Test Credentials:
 Username:jondoe6
 Password:password
+
+ API Documentation:
+![Screenshot (747)](https://user-images.githubusercontent.com/69719463/105758363-ca1fd300-5f14-11eb-8b31-0b9bdd4ec5d9.png) 
+![Screenshot (748)](https://user-images.githubusercontent.com/69719463/105758362-c9873c80-5f14-11eb-8306-705f727b2157.png)
+![Screenshot (750)](https://user-images.githubusercontent.com/69719463/105758917-719d0580-5f15-11eb-9462-28b12caed391.png)
+<img width="1594" alt="Screen Shot 2021-01-19 at 11 27 12" src="https://user-images.githubusercontent.com/69719463/105071282-f9809c80-5a49-11eb-81fa-9ca5db67c03e.png">
+<img width="1668" alt="Screen Shot 2021-01-19 at 11 24 55" src="https://user-images.githubusercontent.com/69719463/105071285-fab1c980-5a49-11eb-85f0-67e9090859d4.png">
+<img width="1673" alt="Screen Shot 2021-01-19 at 11 23 03" src="https://user-images.githubusercontent.com/69719463/105071287-fbe2f680-5a49-11eb-86aa-f75858c72f9c.png">
 
 Screenshots of App
 Landing page
@@ -33,13 +41,6 @@ Creating a new post
 Dashboard
 ![Dashboard](https://user-images.githubusercontent.com/69719463/105759270-dfe1c800-5f15-11eb-9982-06a4b2b2641e.png)
 
- API Documentation:
- ![Screenshot (748)](https://user-images.githubusercontent.com/69719463/105758362-c9873c80-5f14-11eb-8306-705f727b2157.png)
-![Screenshot (747)](https://user-images.githubusercontent.com/69719463/105758363-ca1fd300-5f14-11eb-8b31-0b9bdd4ec5d9.png)
-![Screenshot (750)](https://user-images.githubusercontent.com/69719463/105758917-719d0580-5f15-11eb-9462-28b12caed391.png)
-<img width="1594" alt="Screen Shot 2021-01-19 at 11 27 12" src="https://user-images.githubusercontent.com/69719463/105071282-f9809c80-5a49-11eb-81fa-9ca5db67c03e.png">
-<img width="1668" alt="Screen Shot 2021-01-19 at 11 24 55" src="https://user-images.githubusercontent.com/69719463/105071285-fab1c980-5a49-11eb-85f0-67e9090859d4.png">
-<img width="1673" alt="Screen Shot 2021-01-19 at 11 23 03" src="https://user-images.githubusercontent.com/69719463/105071287-fbe2f680-5a49-11eb-86aa-f75858c72f9c.png">
 
 Key Technology - Node, PostgreSQL, Knex
 
