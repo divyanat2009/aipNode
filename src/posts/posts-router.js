@@ -1,10 +1,10 @@
-const express = require('express')
-const xss = require('xss')
-const path = require('path')
-const PostsService = require('./posts-service')
-const UsersService = require('../users/users-service')
-const postsRouter = express.Router()
-const jsonParser = express.json()
+const express = require('express');
+const xss = require('xss');
+const path = require('path');
+const PostsService = require('./posts-service');
+const UsersService = require('../users/users-service');
+const postsRouter = express.Router();
+const jsonParser = express.json();
 const verifyJWTToken = require("../auth/auth");
 const serializedPost = post =>({
     id:post.id,
@@ -169,4 +169,4 @@ postsRouter
       next()
   }
 
-module.exports = postsRouter 
+module.exports = postsRouter; 

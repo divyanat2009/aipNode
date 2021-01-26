@@ -1,7 +1,7 @@
-const express = require('express')
-const xss = require('xss')
-const path = require('path')
-const UsersService = require('./users-service')
+const express = require('express');
+const xss = require('xss');
+const path = require('path');
+const UsersService = require('./users-service');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const {jwtSecret} = require("../config");
@@ -11,8 +11,8 @@ var token = jwt.sign({ foo: 'bar' }, jwtSecret);
 
 
 
-const usersRouter = express.Router()
-const jsonParser = express.json()
+const usersRouter = express.Router();
+const jsonParser = express.json();
 
 const serializedUser = user =>({
     id:user.id,
@@ -143,4 +143,4 @@ usersRouter
    
 
 
-module.exports = usersRouter 
+module.exports = usersRouter; 

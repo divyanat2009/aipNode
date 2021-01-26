@@ -1,12 +1,12 @@
-const express = require('express')
-const xss = require('xss')
-const path = require('path')
-const BookmarksService = require('./bookmarks-service.js')
-const UsersService = require('../users/users-service.js')
-const PostsService = require('../posts/posts-service.js')
+const express = require('express');
+const xss = require('xss');
+const path = require('path');
+const BookmarksService = require('./bookmarks-service.js');
+const UsersService = require('../users/users-service.js');
+const PostsService = require('../posts/posts-service.js');
 
-const bookmarksRouter = express.Router()
-const jsonParser = express.json()
+const bookmarksRouter = express.Router();
+const jsonParser = express.json();
 
 bookmarksRouter
     .route('/')
@@ -138,4 +138,4 @@ bookmarksRouter
         .catch(next)
     })
 
-module.exports = bookmarksRouter
+module.exports = bookmarksRouter;

@@ -1,12 +1,12 @@
 const knex = require('knex');
-const app = require('../src/app')
-require('dotenv').config()
+const app = require('../src/app');
+require('dotenv').config();
 
 const { makeUsersArray } = require('./users.fixtures.js');
 const { makePostsArray} = require('./posts.fixtures.js');
 
 describe(`aip endpoints`,()=>{
-    let db 
+    let db; 
 
     before('make knex instance',()=>{
         db = knex({
@@ -16,11 +16,11 @@ describe(`aip endpoints`,()=>{
           app.set('db', db)
         })
 
-    after('disconnect from db',()=>db.destroy())
+    after('disconnect from db',()=>db.destroy());
 
-    before('clean the table', () => db.raw('TRUNCATE aip_connections, aip_bookmarks, aip_posts, aip_users RESTART IDENTITY CASCADE'))
+    before('clean the table', () => db.raw('TRUNCATE aip_connections, aip_bookmarks, aip_posts, aip_users RESTART IDENTITY CASCADE'));
 
-    afterEach('cleanup',() => db.raw('TRUNCATE aip_connections, aip_bookmarks, aip_posts, aip_users RESTART IDENTITY CASCADE'))
+    afterEach('cleanup',() => db.raw('TRUNCATE aip_connections, aip_bookmarks, aip_posts, aip_users RESTART IDENTITY CASCADE'));
 
     describe(`GET /`,()=>{
         context(`initial test of endpoint`,()=>{
