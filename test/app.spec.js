@@ -1,6 +1,7 @@
-const app = require('../src/app')
-const knex = require('knex')
-const { DATABASE_URL } = require('../src/config')
+const app = require('../src/app');
+const knex = require('knex');
+const { DATABASE_URL } = require('../src/config');
+
 
 describe('App',()=>{
 
@@ -13,14 +14,14 @@ describe('App',()=>{
 })
 
 describe('Test api endpoints', () => {
-
+    let db;
     before('make knex instance', () => {
         const db =knex({
             client: 'pg',
             connection:DATABASE_URL,
           })
           
-          app.set('db',db)
+          app.set('db',db);
       })
 
     context(`testing users endpoints`, () => {
@@ -165,3 +166,6 @@ describe('Test api endpoints', () => {
 
       })
 })
+
+
+
