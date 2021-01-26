@@ -163,9 +163,30 @@ describe('Test api endpoints', () => {
                 },
                 )
           })
+          it(`POST /api/posts/:username`, () => {
+            return supertest(app)
+              .post('/api/posts/jondoe6')
+              .send({ title: "The Paleo Approach", link:"www.google.com", by:"Sarah Ballantyne",
+              content:"Some amazing stuff", post_type:"recipe" })
+              .expect(201, 
+                {
+                    id: 48,
+                    user_id: 4,
+                    title: 'The Paleo Approach',
+                    link: 'www.google.com',
+                    by: 'Sarah Ballantyne',
+                    content: 'Some amazing stuff',
+                    post_type: 'recipe',
+                    date_created: '2021-01-26T06:00:00.000Z'
+                  }
+                
+                )
+          })
+    
+        })
 
       })
-})
+
 
 
 

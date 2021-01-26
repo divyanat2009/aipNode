@@ -40,13 +40,13 @@ bookmarksRouter
     })
     .post(jsonParser,(req, res, next)=>{
         
-        const { user_id, post_id, content } = req.body
-        const newBookmark = { user_id, post_id, content }
+        const { user_id, post_id, content } = req.body;
+        const newBookmark = { user_id, post_id, content };
 
         if(!user_id || ! post_id ){
             return res.status(400).json({
                 error: { message : `Missing user_id or post_id in request body` }
-            })
+            });
         }
         //check to make sure the user_id and post_id exist before allowing to post
         UsersService.getUserByUserId(
@@ -57,7 +57,7 @@ bookmarksRouter
             if(!user){
                 return res.status(404).json({
                     error: {message: `User with id ${user_id} doesn't exist` }
-                })
+                });
             }    
         })
         
@@ -69,7 +69,7 @@ bookmarksRouter
             if(!post){
                 return res.status(404).json({
                     error: {message: `Post with id ${post_id} doesn't exist` }
-                })
+                });
             }    
         })
 
@@ -96,9 +96,9 @@ bookmarksRouter
             if(!bookmark){
                 return res.status(404).json({
                     error: {message: `Bookmark doesn't exist` }
-                })
+                });
             }
-            res.bookmark = bookmark
+            res.bookmark = bookmark;
             next()
         })
         .catch(next)       
@@ -116,15 +116,15 @@ bookmarksRouter
         })
     })
     .patch(jsonParser, (req, res, next)=>{
-        const { content } = req.body
-        const bookmarkToUpdate = { content }
+        const { content } = req.body;
+        const bookmarkToUpdate = { content };
 
         if(!content){
             return res.status(400).json({
                 error: {
                   message: `Request body must contain content`
                 }
-            })
+            });
         }
 
         BookmarksService.updateBookmark(

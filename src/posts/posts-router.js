@@ -30,7 +30,7 @@ postsRouter
     if(!user){
        return res.status(404).json({
        error: {message: `User doesn't exist` }
-        })
+        });
       }
     
       PostsService.getPostsByUserId(
@@ -41,9 +41,9 @@ postsRouter
           if(posts.length===0){
             return res.status(404).json({
             error: {message: `Posts with that username or id do not exsit`}
-            })
+            });
           }
-          res.json(posts.map(serializedPost)) 
+          res.json(posts.map(serializedPost)); 
         })
       .catch(next)
       
@@ -52,8 +52,8 @@ postsRouter
  
     })
     .post(jsonParser, (req, res, next)=>{
-       const { title, link, by,content, post_type } = req.body
-       const validPostTypes = [`recipe`, `lifestyle`,`event`,`book`,`podcast`]
+       const { title, link, by,content, post_type } = req.body;
+       const validPostTypes = [`recipe`, `lifestyle`,`event`,`book`,`podcast`];
 
        UsersService.getUserByUsername(
         req.app.get('db'),
@@ -63,10 +63,10 @@ postsRouter
         if(!user){
            return res.status(404).json({
            error: {message: `User doesn't exist` }
-            })
+            });
           }
           const user_id = user.id;
-          const newPost = { user_id, title, link,by,content, post_type }
+          const newPost = { user_id, title, link,by,content, post_type };
           PostsService.insertNewPost(
             req.app.get('db'),
               newPost
@@ -134,15 +134,15 @@ postsRouter
        if(!post){
          return res.status(404).json({
          error: {message: `Post doesn't exist` }
-         })
+         });
        }
-       res.post = post
+       res.post = post;
        next()
       })
     .catch(next)       
     })
     .get((req, res, next)=>{
-        res.json(serializedPost(res.post))
+        res.json(serializedPost(res.post));
     })
     .delete((req, res, next)=>{
        PostsService.deletePost(
@@ -163,7 +163,7 @@ postsRouter
       console.log(authToken);
       if(!verifyJWTToken(authToken) )
       {
-        return res.status(401).json({ error: 'Unauthorized request' })
+        return res.status(401).json({ error: 'Unauthorized request' });
       }
       // move to the next middleware
       next()

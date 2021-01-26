@@ -33,21 +33,21 @@ usersRouter
     .catch(next)
     })
     .post(jsonParser, (req, res, next)=>{
-       const { fullname, username, password } = req.body
+       const { fullname, username, password } = req.body;
   
         bcrypt.genSalt(saltRounds, function(err, salt) {
           bcrypt.hash(password, salt, function(err, hash) {
             
             const password = hash;
-            const newUser = { fullname, username, password }
+            const newUser = { fullname, username, password };
 
             for(const [key, value] of Object.entries(newUser)){
               if(value==null){
                 return res.status(400).json({
                   error: {message: `Missing '${key}' in request body`}
-                 })
-                }
-            }
+                 });
+                };
+            };
 
             UsersService.insertNewUser(
               req.app.get('db'),
@@ -78,7 +78,7 @@ usersRouter
           if(!user){
              return res.status(404).json({
              error: {message: `User doesn't exist` }
-              })
+              });
             }
             res.user = user
             next()
@@ -111,7 +111,7 @@ usersRouter
           if(!user){
              return res.status(404).json({
              error: {message: `User doesn't exist` }
-              })
+              });
             }
             res.user = user
             next()
@@ -120,7 +120,7 @@ usersRouter
     })
 
     .post(jsonParser, (req, res, next)=>{
-      const { password } = req.body
+      const { password } = req.body;
       bcrypt.compare(password, res.user.password, function(error, response) {
         if(!response){
           res.status(401).json({success: false});
